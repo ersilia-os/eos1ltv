@@ -6,7 +6,7 @@ import numpy as np
 from rdkit import Chem
 from rdkit.Chem.Descriptors import MolWt
 from ersilia_pack_utils.core import read_smiles, write_out
-
+from inference import get_molecular_representation
 # parse arguments
 input_file = sys.argv[1]
 output_file = sys.argv[2]
@@ -16,7 +16,11 @@ root = os.path.dirname(os.path.abspath(__file__))
 
 # my model
 def my_model(smiles_list):
-    return [MolWt(Chem.MolFromSmiles(smi)) for smi in smiles_list]
+    results = []
+    print("=="*20)
+    for smi in smiles_list:
+        results.append(get_molecular_representation(smi)['representation'])
+    return np.array(results)
 
 
 # read SMILES from .csv file, assuming one column with header
