@@ -1,42 +1,35 @@
 Identifier: eos1ltv
-Slug: simg
+Slug: simg-chemical-embeddings
 Status: In progress
-Title: SIMG
+Title: SIMG Chemical Embeddings
 Description: Chemical Representation and Interaction Discovery with 
   Stereoelectronics-Infused Molecular Graphs. This work introduces a novel 
   approach to infusing quantum-chemical-rich information into molecular graphs 
   via stereoelectronic effects.
 Deployment:
   - Local
-  - Online
-Source: Local, Online
-Source Type: Internal, Replicated, External
-Task: Annotation, Representation, Sampling
-Subtask: Property calculation or prediction, Activity prediction, Featurization,
-  Projection, Similarity search, Generation
+Source: Local
+Source Type: External
+Task: Representation 
+Subtask: Featurization
 Input:
   - Compound
 Input Dimension: 1
 Output:
   - Value
-  - Score
-  - Compound
-  - Text
-Output Dimension: 1
-Output Consistency: Fixed, Variable
+Output Dimension: 128
+Output Consistency: Fixed
 Interpretation: The output of this template model should be interpreted like 
   this.
 Tag:
   - Embedding
 Biomedical Area:
-  - Biomedical Area 1
-  - Biomedical Area 2
+  - Any
 Target Organism:
-  - Target Organism 1
-  - Target Organism 2
-Publication Type: Peer reviewed, Preprint, Other
-Publication Year: 2026
-Publication: https://arxiv.org/abs/2408.04520
+  - Any
+Publication Type: Peer reviewed
+Publication Year: 2025
+Publication: https://doi.org/10.1038/s42256-025-01031-9
 Source Code: https://github.com/gomesgroup/simg
 License: CC-BY-4.0
 Contributor: SoufianeAatab
