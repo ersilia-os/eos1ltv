@@ -10,7 +10,7 @@ Deployment:
   - Local
 Source: Local
 Source Type: External
-Task: Representation 
+Task: Representation
 Subtask: Featurization
 Input:
   - Compound
@@ -33,3 +33,7 @@ Publication: https://doi.org/10.1038/s42256-025-01031-9
 Source Code: https://github.com/gomesgroup/simg
 License: CC-BY-4.0
 Contributor: SoufianeAatab
+Incorporation Date: '2026-09-07'
+S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos1ltv.zip
+Model Size: 21.0
+Environment Size: 1630.0
