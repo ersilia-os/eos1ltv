@@ -2,6 +2,7 @@
 
 Chemical Representation and Interaction Discovery with Stereoelectronics-Infused Molecular Graphs. This work introduces a novel approach to infusing quantum-chemical-rich information into molecular graphs via stereoelectronic effects.
 
+This model was incorporated on 2026-09-07.
 
 
 ## Information
@@ -43,8 +44,11 @@ _10 of 128 columns are shown_
 ### Source and Deployment
 - **Source:** `Local`
 - **Source Type:** `External`
+- **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos1ltv.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos1ltv.zip)
 
 ### Resource Consumption
+- **Model Size (Mb):** `21`
+- **Environment Size (Mb):** `1630`
 
 
 ### References
