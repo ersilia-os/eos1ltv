@@ -1,4 +1,6 @@
+import glob
 import os
+import sys
 import uuid
 
 import numpy as np
@@ -7,6 +9,23 @@ import torch
 from simg.model_utils import pipeline, gnn
 from simg.data import get_connectivity_info
 
+_CONDA_PREFIX = os.path.dirname(os.path.dirname(sys.executable))
+_OBABEL_BIN = os.path.join(_CONDA_PREFIX, "bin", "obabel")
+
+def _ensure_babel_env():
+    if not os.path.exists(_OBABEL_BIN):
+        return
+    if not os.environ.get("BABEL_LIBDIR"):
+        lib_dirs = sorted(glob.glob(os.path.join(_CONDA_PREFIX, "lib", "openbabel", "*")))
+        if lib_dirs:
+            os.environ["BABEL_LIBDIR"] = lib_dirs[-1]
+    if not os.environ.get("BABEL_DATADIR"):
+        data_dirs = sorted(glob.glob(os.path.join(_CONDA_PREFIX, "share", "openbabel", "*")))
+        if data_dirs:
+            os.environ["BABEL_DATADIR"] = data_dirs[-1]
+
+_ensure_babel_env()
+
 def smiles_to_xyz(smi: str) -> str:
     path = uuid.uuid4().hex
     smi_path = f"{path}.smi"
@@ -14,7 +33,8 @@ def smiles_to_xyz(smi: str) -> str:
     with open(smi_path, "w") as f:
         f.writelines(smi + "\n")
 
-    os.system(f"obabel -i smi {smi_path} -o xyz -O {xyz_path} --gen3d >/dev/null 2>&1")
+    obabel_cmd = _OBABEL_BIN if os.path.exists(_OBABEL_BIN) else "obabel"
+    os.system(f"{obabel_cmd} -i smi {smi_path} -o xyz -O {xyz_path} --gen3d >/dev/null 2>&1")
 
     with open(xyz_path, "r") as f:
         xyz = f.read()
