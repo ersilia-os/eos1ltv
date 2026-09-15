@@ -15,11 +15,11 @@ _OBABEL_BIN = os.path.join(_CONDA_PREFIX, "bin", "obabel")
 def _ensure_babel_env():
     if not os.path.exists(_OBABEL_BIN):
         return
-    if not os.environ.get("BABEL_LIBDIR"):
+    if not os.path.isdir(os.environ.get("BABEL_LIBDIR", "")):
         lib_dirs = sorted(glob.glob(os.path.join(_CONDA_PREFIX, "lib", "openbabel", "*")))
         if lib_dirs:
             os.environ["BABEL_LIBDIR"] = lib_dirs[-1]
-    if not os.environ.get("BABEL_DATADIR"):
+    if not os.path.isdir(os.environ.get("BABEL_DATADIR", "")):
         data_dirs = sorted(glob.glob(os.path.join(_CONDA_PREFIX, "share", "openbabel", "*")))
         if data_dirs:
             os.environ["BABEL_DATADIR"] = data_dirs[-1]
