@@ -1,6 +1,6 @@
 Identifier: eos1ltv
 Slug: simg-chemical-embeddings
-Status: In progress
+Status: Ready
 Title: SIMG Chemical Embeddings
 Description: Chemical Representation and Interaction Discovery with 
   Stereoelectronics-Infused Molecular Graphs. This work introduces a novel 
@@ -34,6 +34,16 @@ Source Code: https://github.com/gomesgroup/simg
 License: CC-BY-4.0
 Contributor: SoufianeAatab
 Incorporation Date: '2026-09-07'
+Last Packaging Date: '2026-09-15'
+Release: v1.0.0
 S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos1ltv.zip
+DockerHub: https://hub.docker.com/r/ersiliaos/eos1ltv
+Docker Architecture: AMD64
 Model Size: 21.0
 Environment Size: 1630.0
+Image Size: 1725.48
+Computational Performance 1: 33.02
+Computational Performance 2: 79.53
+Computational Performance 3: 253.29
+Computational Performance 4: -1.0
+Computational Performance 5: -1.0
