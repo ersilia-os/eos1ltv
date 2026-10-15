@@ -1,10 +1,11 @@
 import glob
 import os
 import sys
-import uuid
 
 import numpy as np
 import torch
+from rdkit import Chem
+from rdkit.Chem import AllChem
 
 from simg.model_utils import pipeline, gnn
 from simg.data import get_connectivity_info
@@ -26,22 +27,19 @@ def _ensure_babel_env():
 
 _ensure_babel_env()
 
+# fixed seed so the 3D conformer, and therefore the embedding, is reproducible
+SEED = 42
+
 def smiles_to_xyz(smi: str) -> str:
-    path = uuid.uuid4().hex
-    smi_path = f"{path}.smi"
-    xyz_path = f"{path}.xyz"
-    with open(smi_path, "w") as f:
-        f.writelines(smi + "\n")
-
-    obabel_cmd = _OBABEL_BIN if os.path.exists(_OBABEL_BIN) else "obabel"
-    os.system(f"{obabel_cmd} -i smi {smi_path} -o xyz -O {xyz_path} --gen3d >/dev/null 2>&1")
-
-    with open(xyz_path, "r") as f:
-        xyz = f.read()
-    os.remove(smi_path)
-    os.remove(xyz_path)
-
-    return xyz
+    mol = Chem.AddHs(Chem.MolFromSmiles(smi))
+    params = AllChem.ETKDGv3()
+    params.randomSeed = SEED
+    if AllChem.EmbedMolecule(mol, params) != 0:
+        # fallback for molecules that fail the standard embedding
+        params.useRandomCoords = True
+        AllChem.EmbedMolecule(mol, params)
+    AllChem.MMFFOptimizeMolecule(mol)
+    return Chem.MolToXYZBlock(mol)
 
 def get_molecular_representation(smi: str, pooling: str = "atom_mean"):
     xyz = smiles_to_xyz(smi)
