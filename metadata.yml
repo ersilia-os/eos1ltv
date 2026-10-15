@@ -40,7 +40,7 @@ S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos1ltv.zip
 DockerHub: https://hub.docker.com/r/ersiliaos/eos1ltv
 Docker Architecture: AMD64
 Model Size: 21.0
-Environment Size: 1630.0
+Environment Size: 1637.0
 Image Size: 1725.48
 Computational Performance 1: 33.02
 Computational Performance 2: 79.53
