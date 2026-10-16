@@ -37,7 +37,10 @@ def smiles_to_xyz(smi: str) -> str:
     if AllChem.EmbedMolecule(mol, params) != 0:
         # fallback for molecules that fail the standard embedding
         params.useRandomCoords = True
-        AllChem.EmbedMolecule(mol, params)
+        if AllChem.EmbedMolecule(mol, params) != 0:
+            # some caged or bridged molecules only embed without enforcing chirality
+            params.enforceChirality = False
+            AllChem.EmbedMolecule(mol, params)
     AllChem.MMFFOptimizeMolecule(mol)
     return Chem.MolToXYZBlock(mol)
 
