@@ -23,11 +23,11 @@ warnings.filterwarnings(
 THIS_FILE_PATH = os.path.dirname(os.path.realpath(__file__))
 
 LP_CHECKPOINT_PATH = (
-    f"{THIS_FILE_PATH}/checkpoints/lp_pred_model.ckpt"
+    os.path.join(THIS_FILE_PATH, "..", "..", "..", "checkpoints", "lp_pred_model.ckpt")
 )
 
 INTERACTION_CHECKPOINT_PATH = (
-    f"{THIS_FILE_PATH}/checkpoints/nbo_pred_model.ckpt"
+    os.path.join(THIS_FILE_PATH, "..", "..", "..", "checkpoints", "nbo_pred_model.ckpt")
 )
 
 lp_model = GNN_LP.load_from_checkpoint(LP_CHECKPOINT_PATH)
