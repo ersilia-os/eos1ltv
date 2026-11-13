@@ -2,7 +2,8 @@
 
 Chemical Representation and Interaction Discovery with Stereoelectronics-Infused Molecular Graphs. This work introduces a novel approach to infusing quantum-chemical-rich information into molecular graphs via stereoelectronic effects.
 
-This model was incorporated on 2026-09-07.Last packaged on 2026-09-15.
+This model was incorporated on 2026-09-07.
+Last packaged on 2026-09-15.
 
 ## Information
 ### Identifiers
