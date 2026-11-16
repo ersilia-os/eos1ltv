@@ -3,7 +3,7 @@
 Chemical Representation and Interaction Discovery with Stereoelectronics-Infused Molecular Graphs. This work introduces a novel approach to infusing quantum-chemical-rich information into molecular graphs via stereoelectronic effects.
 
 This model was incorporated on 2026-09-07.
-Last packaged on 2026-09-15.
+Last packaged on 2026-11-16.
 
 ## Information
 ### Identifiers
@@ -51,11 +51,11 @@ _10 of 128 columns are shown_
 ### Resource Consumption
 - **Model Size (Mb):** `14`
 - **Environment Size (Mb):** `1701`
-- **Image Size (Mb):** `1725.48`
+- **Image Size (Mb):** `561.48`
 
 **Computational Performance (seconds):**
-- 10 inputs: `33.02`
-- 100 inputs: `253.29`
+- 10 inputs: `33.57`
+- 100 inputs: `149.63`
 - 10000 inputs: `-1`
 
 ### References
