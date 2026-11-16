@@ -14,12 +14,21 @@ output_file = sys.argv[2]
 # current file directory
 root = os.path.dirname(os.path.abspath(__file__))
 
+# number of embedding features (see columns/run_columns.csv)
+N_FEATURES = 128
+
 # my model
 def my_model(smiles_list):
     results = []
     print("=="*20)
     for smi in smiles_list:
-        results.append(get_molecular_representation(smi)['representation'])
+        try:
+            results.append(get_molecular_representation(smi)['representation'])
+        except Exception as e:
+            # molecules the SIMG pipeline cannot represent (e.g. single ions such as [Y+3],
+            # elements outside its atom vocabulary) get an empty row instead of failing the batch
+            print(f"Could not process {smi}: {type(e).__name__}: {e}", file=sys.stderr)
+            results.append(np.full(N_FEATURES, np.nan, dtype=np.float32))
     return np.array(results)
 
 
