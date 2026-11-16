@@ -34,16 +34,16 @@ Source Code: https://github.com/gomesgroup/simg
 License: CC-BY-4.0
 Contributor: SoufianeAatab
 Incorporation Date: '2026-09-07'
-Last Packaging Date: '2026-09-15'
+Last Packaging Date: '2026-11-16'
 Release: v1.0.0
 S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos1ltv.zip
 DockerHub: https://hub.docker.com/r/ersiliaos/eos1ltv
 Docker Architecture: AMD64
 Model Size: 14.0
 Environment Size: 1701.0
-Image Size: 1725.48
-Computational Performance 1: 33.02
-Computational Performance 2: 79.53
-Computational Performance 3: 253.29
-Computational Performance 4: -1.0
+Image Size: 561.48
+Computational Performance 1: 33.57
+Computational Performance 2: 56.02
+Computational Performance 3: 149.63
+Computational Performance 4: 1077.76
 Computational Performance 5: -1.0
