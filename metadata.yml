@@ -35,7 +35,7 @@ License: CC-BY-4.0
 Contributor: SoufianeAatab
 Incorporation Date: '2026-09-07'
 Last Packaging Date: '2026-11-16'
-Release: v1.0.0
+Release: v2.0.0
 S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos1ltv.zip
 DockerHub: https://hub.docker.com/r/ersiliaos/eos1ltv
 Docker Architecture: AMD64
