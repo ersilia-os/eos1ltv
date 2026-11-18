@@ -39,6 +39,7 @@ Release: v2.0.1
 S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos1ltv.zip
 DockerHub: https://hub.docker.com/r/ersiliaos/eos1ltv
 Docker Architecture: AMD64
+Apptainer: https://models-sif.s3.eu-north-1.amazonaws.com/eos1ltv_v2.sif
 Model Size: 14.0
 Environment Size: 1701.0
 Image Size: 561.48
